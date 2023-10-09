@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/assets/DigiPilot_Alpha.png" />
+    <title>TBT Blog</title>
+    <script src="sb.min.js"></script>
+  </head>
+
+  <!-- Initialize Strawberry -->
+  <script>
+    const data = sb.init();
+  </script>
+  <!-- Loading Local Styles -->
+  <link rel="stylesheet" href="assets/common.css" />
+  <link rel="stylesheet preload" href="assets/fonts/fonts.css" />
+  <!-- HTML Body -->
+
+  <body>
+    <!-- Use defined components -->
+    <header>
+      <div class="banner"></div>
+      <h1>TBT Blog</h1>
+      <p>A blog of things that lead to a as of yet unnamed</p>
+      <p>Turn Based Tactics Mech Game</p>
+      <div class="banner"></div>
+    </header>
+
+    <!--Post 1-->
+    <article class="block" id="Post1">
+      <h2>An Intro to TBT</h2>
+      <blockquote>
+        This is a Turn Based Tactics Mech Game. I've not gotten around to naming
+        it yet. So I've just been rolling with TBT as a runnings name.
+      </blockquote>
+      <p>
+        Starting as an initial "keep my skills sharp while moving into doing
+        more admin style things for my day job" toy project there is currently a
+        variety of diffrent concepts and ideals all slammed together. There will
+        eventually be a trimming and pruning that will make it make sense again.
+        The inception of the concept was "What if I had trading cards that I
+        could just drag into a project and have a character spawn for that
+        card". The "Cards" being a bit of stego on a PNG with a SQLite db stuck
+        in there. This has inevitably progress to a "export my design to a mate"
+        as well as dreams of roguelike designs.
+      </p>
+      <blockquote>But first some graphics</blockquote>
+      <img src="assets/Images/MechViewer.gif" />
+      <blockquote>Also some clicky things</blockquote>
+      <img src="assets/Images/MechClicky.gif" class="img-fluid" />
+      <blockquote>
+        And what's a game UI if a user can't cutomize the colours of it
+      </blockquote>
+      <img src="assets/Images/UI_Colours.gif" class="img-fluid" />
+      <!--
+      <img src="assets/Images/MechClicky.gif">
+      <img src="assets/Images/UI_Colours.gif">
+      -->
+      <p>
+        The mechanics might be in flux and constantly shifting between concepts,
+        but something that has stayed consistent is the concept of "mod as a
+        trading card" which has always had particular appeal to me personally.
+        The visual style has experienced simular flux, initially starting as a
+        PSX concept it's moved a little deeped into fidility. The style is
+        inspired by a dear friend of mine's love for the psudo relgious mech
+        lore themes.
+      </p>
+      <blockquote>
+        There is also some ideas around "If I'm shipping a mech in a card,
+        probably need to explain a mech in the card as well"
+      </blockquote>
+      <img src="assets/Images/MechWiki.gif" />
+      <p>That is about the it for the "This exists" portion of TBT for now.</p>
+      <blockquote>
+        Thank you
+        <a href="https://niko-3d-models.itch.io/game-ready-mecha-character">
+          Niko</a
+        >
+        for a lovely mech model. I've modified it greatly and been having fun
+        playing with it.
+      </blockquote>
+
+      <h3><time datetime="2023-04-20"> 2023/04/20</time></h3>
+    </article>
+    <!--/Post 1-->
+    <!--Post 2-->
+    <article class="block" id="Post2">
+      <h2>And so we enter Data Land</h2>
+      <p>
+        After the initial bit of fun dealing with Models, Mechs, UI code, POC
+        implementation of dragging cards into the Unity and a very humorous
+        version of the exported cards.
+      </p>
+      <blockquote>
+        I got very excited to try my frame export code and found a CC0 frame.
+      </blockquote>
+      <img src="assets/Images/igotaframe.png" class="img-fluid" />
+      <p>
+        After collecting all the bits and pieces together in some sort of shape
+        and form it was time to start getting into the data of it all. As usual
+        my initial SQL database layouts missed some things which was only
+        noticed during actually using the data. The main thing I noticed was
+        loading a blob object on each row was a terrible idea. So I moved all
+        the models and textures in their own table. The rest of the tables just
+        point at those tables which allow me loading in all kinds of details of
+        mechs and pilots etc. followed by loading the models as needed was much
+        kinder to memory.
+      </p>
+      <blockquote>Some Tools Were Required</blockquote>
+      <img src="assets/Images/SomeToolsNeeded.png" class="img-fluid" />
+      <p>
+        The choice of treating all the loading logic etc as a managed DLL was
+        made pretty early on, which I've been enjoying alot, along with sweet
+        nothing lies such as "then I can just use the same card logic in another
+        game by dragging on one DLL". Which is clearly a soothing lie I tell
+        myself. Turned out to be very convenient. The initial process of "close
+        and reopen unity" after each rebuild to be able to test if my code workd
+        was rather annoying but after some poking and scratching around in the
+        back of my head I remembered this is why Unit Tests exists. After some
+        customization and some basic Unit tests for the newer article of my
+        managed plugin, I am having a lovely time working on this plugin now.
+      </p>
+      <img src="assets/Images/DbhubioHelpful.png" class="img-fluid" />
+      <blockquote>
+        I also realised I can get git style versioning from
+        <a href="https://dbhub.io/" target="_blank" rel="noreferrer"
+          >dbhub.io</a
+        >
+        which has been profoundly useful to me during this process.
+      </blockquote>
+      <h3><time datetime="2023-05-30"> 2023/05/30</time></h3>
+    </article>
+    <!--/Post 2-->
+    <!--Post 3-->
+    <article class="block" id="Post3">
+      <h2>What is a blog if not a complicated zine?</h2>
+      <p>
+        Creating a blog is just creating temptation. Initially this blog was
+        intended as a "quick and dirty slap dash for a project log" but as
+        anybody that has ever made a blog can attest. A blog has a prupose and a
+        distraction baked into it. The temptation to just start messing around
+        with making it cool inevitably sets in.
+      </p>
+      <blockquote>
+        And so this blog is now a zine. Just hit CTRL+P and it's a zine*
+      </blockquote>
+      <img src="assets/Images/ItsAZineNow.gif" class="img-fluid" />
+      <p>
+        There are some caveats, ok there are many. The reccomended print
+        settings are:
+      </p>
+      <ol>
+        <li>A4</li>
+        <li>Margins = minimum</li>
+        <li>Scale 97</li>
+        <li>Headers&Footers as well as background graphics turned on</li>
+      </ol>
+      <p>
+        But you set those few print options and the text will fit a post per
+        page and the Title will update to zine, the GIFs have even been tweaked
+        to have their first frames be the crux of what I wanna show and the
+        fonts been tweaked to be a print friendlier size. The Utility of this is
+        not much, but the temptation of making a zine out of this was too much.
+      </p>
+      <blockquote>
+        The World Building had a little bit of an upgrade as well.
+      </blockquote>
+      <img src="assets/Images/HAUNTEDDYSONSPHERE.png" class="img-fluid" />
+      <p>
+        While no real environment art has been built there is an implemention
+        somewhere with "loading a sql-table into a probuilder mesh to make cool
+        bumpy terrain" and there is a really neat cathedral shown in
+        <a href="#Post1">post one</a> that is about the extent of it. The
+        primary focus sofar has been "Neat UI" and "Prep all the data" and
+        "prototype the card loading models and animations dynamically". Which
+        has been great fun. But it leaves space for several questions. Sometimes
+        these questions lead to answers being presented to me such as when Sam
+        asked these questions and then presented me the answers today.
+      </p>
+      <blockquote>
+        Thank you for this one Sam, that was a fun conversational journey to go
+        on. This setting promises alot and I'm sure will deliver plenty of cool
+        places to make things happen and happen in.
+      </blockquote>
+      <h3><time datetime="2023-05-31"> 2023/05/31</time></h3>
+    </article>
+    <!--/Post 3-->
+    <footer class="blank-block" style="margin-bottom: 2rem">
+      <p>
+        Blog By ·
+        <a href="" target="_blank" rel="noreferrer">Andre Hamman</a>
+      </p>
+
+      <p class="no-print">
+        Blog Made using
+        <a href="https://strawberry.quest/" target="_blank" rel="noreferrer">
+          <img
+            src="assets/sb.png"
+            style="width: 22px; height: 22px; margin-bottom: -5px"
+          />
+        </a>
+      </p>
+      <p>Andre Hamman © 2023</p>
+    </footer>
+  </body>
+</html>
