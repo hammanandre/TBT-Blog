@@ -125,6 +125,44 @@ body {
   }
 }
 
+@media screen and (max-width: 390px) {
+  body {
+    max-width: 90%;
+
+  }
+
+  .block>img {
+    max-height: 9rem !important;
+  }
+
+  header>h1 {
+    margin-top: 2rem;
+    font-size: 1.5rem !important;
+  }
+
+  header>p {
+    font-size: 0.65rem !important;
+  }
+
+  .banner {
+    margin-left: -0.5rem !important;
+    height: 32px !important;
+    background-size: 32px !important;
+  }
+
+  .block>h2 {
+    font-size: 0.55rem !important;
+  }
+
+  blockquote {
+    font-size: 0.85rem !important;
+  }
+
+  p, a, time {
+    font-size: 0.85rem !important;
+  }
+}
+
 header>* {
   margin: 0rem;
   display: grid;
